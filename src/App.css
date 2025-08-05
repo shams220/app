@@ -4,6 +4,7 @@
 
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -15,6 +16,15 @@
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;   /* To prevent scrollbars. If you want scrolling for content, use only `overflow-x: hidden;` */
+  background: black;  /* ensures no gray shows through */
 }
 
 .App-header {

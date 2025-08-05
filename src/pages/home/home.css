@@ -1,0 +1,43 @@
+.body{
+    
+    scroll-behavior: smooth;
+;
+}
+
+.homeDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    align-items: center;
+}
+.todoDiv{
+    
+     /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; */
+}
+.todoAlone{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 30px;
+    background-color: rgb(185, 181, 181);
+    width: 300px;
+    height: 250px;
+    color:white;
+    border-radius: 10px;
+
+}
+.todoBtn button{
+    background-color: red;
+    margin-right: 20px;
+    
+}
+.borderDiv{
+        background-color: transparent;
+    width: 95%;
+    height: 50rem;
+    border: 2px solid white;
+    border-radius: 29px;
+}

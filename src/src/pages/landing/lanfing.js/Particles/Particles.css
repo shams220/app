@@ -1,0 +1,14 @@
+.particles-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+/* Preferably add a classname to Particles (see below), or target its direct wrapper */
+.particles-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}

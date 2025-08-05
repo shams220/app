@@ -1,0 +1,101 @@
+.whole{
+    
+
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+
+}
+.sirDiv {
+    background-color: black;
+    position: relative;
+
+}
+
+.particles-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+
+.lg {
+
+
+ position: relative;
+    width: 125px;
+    left: 7rem;
+    top: 1rem;
+
+
+}
+
+.textbtnMain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 200px;
+}
+
+.textBtnDiv p {
+    font-size: larger;
+    font-weight: 900;
+    font-size: 60px;
+    margin-left: 20%;
+    margin-right: 20%;
+    line-height: 80px;
+
+
+}
+
+.btnDiv button {
+    border: 1px solid;
+border-radius: 50px;
+font-weight: 300;
+    font-size: 25px;
+        padding: 10px 40px 10px 40px;
+
+}
+
+.btnDiv {
+       display: flex
+;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 50px;
+    flex-direction: row;
+    position: relative;
+    left: -5rem;
+}
+
+.lmBtn {
+    background-color: transparent;
+    color: white;
+}
+.lmBtn:hover{
+    background-color: white;
+    color: black;
+    transition:ease-in-out 0.3s
+}
+
+.getstrBtn {
+    background-color: white;
+    color: black;
+    }
+
+   .getstrBtn:hover {
+  background-color: transparent;
+  color: white;
+  transition: ease-in-out 0.3s;
+}
+
+
+

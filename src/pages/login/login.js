@@ -4,6 +4,7 @@ import axios from 'axios';
 import './login.css';
 import { useNavigate } from "react-router-dom";
 import { ToastContainer,toast } from "react-toastify";
+// import {loginImg1}  from '/imges/loginPageImage'
 
 const Login = () => {
 
@@ -30,8 +31,16 @@ const Login = () => {
         }
       }
   return (
-    <div >
-      <div className="">
+    <div className="loginPage">
+      
+      <div className="imageDiv">
+        <img className="logo" src="/imges/logo.png" alt="logo" />
+        <h1>Welcom back</h1>
+        <img className="image" src="/imges/loginPageImage.png" alt="Login" />
+
+      </div>
+      <div className="formDiv">
+        <div className="loginBox">
         <div>
           <input 
           value={email}
@@ -50,6 +59,7 @@ const Login = () => {
           <button  className="loginBtn" onClick={loginHandler}>login</button>
           <button className="loginBtn" onClick={regidterbtn}>sign up</button>
         </div>
+      </div>
       </div>
     </div>
   );
