@@ -1,43 +1,131 @@
-.body{
-    
-    scroll-behavior: smooth;
-;
+/* html, body, #root {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+} */
+
+
+.homeDiv, .hDiv {
+    min-height: 100vh;
+    width: 100vw;
+    background: transparent;
 }
 
-.homeDiv{
+
+.body {
+
+    scroll-behavior: smooth;
+    ;
+}
+
+.homeDiv {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    
+
     align-items: center;
+    /* position: relative; */
 }
-.todoDiv{
-    
-     /* display: flex;
+
+.todoDiv {
+
+    /* display: flex;
     flex-direction: column;
     flex-wrap: wrap; */
 }
-.todoAlone{
+
+.todoAlone {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin: 30px;
-    background-color: rgb(185, 181, 181);
+    background-color: transparent;
     width: 300px;
     height: 250px;
-    color:white;
-    border-radius: 10px;
+    color: white;
+    border-radius: 20px;
+    align-content: flex-start;
+    align-items: flex-start;
+    border: 1px solid white;
+    padding: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+
 
 }
-.todoBtn button{
+
+.todoBtn button {
     background-color: red;
     margin-right: 20px;
-    
+
 }
-.borderDiv{
-        background-color: transparent;
+
+/* .borderDiv {
+    background-color: transparent;
     width: 95%;
     height: 50rem;
-    border: 2px solid white;
+    border: 1px solid white;
     border-radius: 29px;
+} */
+.borderDiv {
+    background-color: black;
+    width: 95%;
+    min-height: 80vh;     /* Or 100vh if you want always full screen min! */
+    height: auto;         /* Remove fixed rem height */
+    border: 1px solid white;
+    border-radius: 29px;
+    box-sizing: border-box; /* Always helps */
+    position: absolute;
+    top: 6rem;
+    left: 3rem;
 }
+
+
+.titlleDescription {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    align-content: flex-start;
+    justify-content: flex-start;
+}
+
+.todoBtn {
+    display: flex;
+    height: 4rem;
+  
+   padding: 20px 0 20px 0;
+}
+
+.todoBtn button {
+    width: 60px;
+    border: 1px solid white;
+    border-radius: 10px;
+    background-color: transparent;
+}
+.popup{
+
+    position: absolute;
+    background-color: black;
+    width: 29rem;
+    height: 29rem;
+    z-index: 999;
+        top: -2rem;
+    left: 41rem;
+    border-radius: 20px;
+    border: 1px solid white;
+    
+}
+.hDiv{
+    
+    height: 57rem;
+    z-index: 1;
+}
+.dither-container{  
+       
+    /* width: 1920px !important;
+    height: 63rem !important; */
+    position: fixed;
+
+}
+

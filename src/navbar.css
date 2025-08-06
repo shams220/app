@@ -1,39 +1,75 @@
-.nav{
-
+.nav {
+    position: absolute;
+    z-index: 1;
+    top: 0rem;
+    
 
 }
-.navDiv{
-color: rgb(255, 255, 255);
-    background-color: black;
-    border: 2px rgb(0, 0, 0);
+
+.navDiv {
+  background-color: black;
+    border-bottom: 1px solid rgb(255 255 255);
+    border-right: 1px solid rgb(255 255 255);
+    border-left: 1px solid rgb(255 255 255);
+    margin-left: 3rem;
+margin-right: 3rem;
     background-color: rgb(3, 3, 3);
-    width: 120rem;
+    width: 114rem;
     height: 5rem;
-    padding: 1rem 1rem 1rem 1rem;
+    padding: 1rem 6rem 1rem 6rem;
     display: flex
 ;
     justify-content: space-between;
     align-items: center;
-     
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+
 }
-.sndDiv{
-display: flex
-;
+
+.sndDiv {
+    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
     gap: 2rem;
 
 }
-.list{
+
+.list {
     display: flex;
-    justify-content: flex-start;
     flex-direction: row;
     gap: 30px;
+    align-items: center;
+
 }
-.createBtn{
-    border:2px solid white
+
+.createBtn {
+    border: 1px solid white;
+    color: black;
+    background-color: white;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+    border-radius: 10px;
 }
-.logoutBtn{
-    color :white;
+.createBtn:hover{
+     
+    color: white;
+    background-color: transparent;
+    transition: ease-in-out 0.3s;
 }
+
+.logoutBtn {
+    color: white;
+   border: 1px solid white;
+    background-color: transparent;
+     padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+       border-radius: 10px;
+}
+
+.logoutBtn:hover{
+      background-color: white;
+    color: black;
+transition: ease-in-out 0.3s;
+    }
+    .lgHome{
+        width: 125px;
+    }

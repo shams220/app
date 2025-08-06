@@ -8,7 +8,8 @@ const Navbar = (props) => {
         <div className="navDiv">
        <div>
            <ul className="list">
-             <li><Link to='/home'>home </Link></li>
+            <li><img  className="lgHome" src="imges/logo.png" alt="" /></li>
+             <li><Link to='/home'>Home </Link></li>
              <li><Link to='/admin'>Admin</Link></li>
              <li><button  className ='createBtn' onClick={props.create}>Create</button>
 

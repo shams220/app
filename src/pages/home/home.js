@@ -5,6 +5,8 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Navbar from '../../navbar'
+import {HoverBorderGradient} from '../../components/ui/hover-border-gradient'
+import  Dither from '../../src/components/Dither/Dither'
 import "./home.css";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -117,7 +119,13 @@ const Home = () => {
   return (
     
     <div className="homeDiv">
-<Navbar create={togglePopup} logout={logoutHandler}/>
+      {/* <Dither /> */}
+       {/* <Dither className="dither-container" /> */}
+<div className="hDiv">
+      <Dither  style={{position: "absolute",width: "1920px" ,
+    height: "63rem" }} className="dither-container" />
+
+  <Navbar create={togglePopup} logout={logoutHandler}/>
  <div className="borderDiv">
 
      {/* <div>
@@ -126,7 +134,7 @@ const Home = () => {
         <button onClick={logoutHandler}>logout</button>
         <button onClick={togglePopup}>Create</button>
       </div> */}
-      <div>
+      <div style={{}}>
         {isOpen && (
           <div className="popup">
             shams
@@ -142,7 +150,7 @@ const Home = () => {
               <input
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                type="text"
+                type="description"
                 placeholder="description"
               />
             </div>
@@ -150,25 +158,35 @@ const Home = () => {
           </div>
         )}
       </div>
+{/* <HoverBorderGradient><button>shams</button></HoverBorderGradient> */}
+
       <div className="todoDiv">
         {/* <h1>{todo.userTODO[6].title}</h1> */}
         {Array.isArray(todo) &&
           todo.map((value, key) => (
             <div key={key} className="todoAlone">
-              <div>Title:{value.title}</div>
-              <div>Description:{value.description}</div>
-              <div>
+             <div className="titlleDescription">
+               <div>
+                <label style={{color:"white"} htmlFor="">Title</label>
+                <strong>{value.title}</strong></div>
+              <br />
+              <div>  {value.description}</div>
+             </div>
+              
                 <div className="todoBtn">
                   <button onClick={() => editHandeler(value)}>Edit</button>
                   <button onClick={() => deleteTodo(value._id)}>Delete</button>
                 </div>
-              </div>
+              
             </div>
           ))}
       </div>
-
+{/* <Dither /> */}
 
  </div>
+ {/* <Dither /> */}
+</div>
+ {/* <Dither /> */}
     </div>
   );
 };
