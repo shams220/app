@@ -4,9 +4,9 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import Navbar from '../../navbar'
-import {HoverBorderGradient} from '../../components/ui/hover-border-gradient'
-import  Dither from '../../src/components/Dither/Dither'
+import Navbar from "../../navbar";
+import { HoverBorderGradient } from "../../components/ui/hover-border-gradient";
+import Dither from "../../src/components/Dither/Dither";
 import "./home.css";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -66,7 +66,7 @@ const Home = () => {
       setTitle("");
       setIsOpen(!isOpen);
       setEditId(null);
-      fetchTodos();
+      await fetchTodos();
     } catch (error) {
       console.log("Error" + error.message);
     }
@@ -117,76 +117,80 @@ const Home = () => {
     navigate("/admin");
   };
   return (
-    
     <div className="homeDiv">
       {/* <Dither /> */}
-       {/* <Dither className="dither-container" /> */}
-<div className="hDiv">
-      <Dither  style={{position: "absolute",width: "1920px" ,
-    height: "63rem" }} className="dither-container" />
+      {/* <Dither className="dither-container" /> */}
+      <div className="hDiv">
+        <Dither
+          style={{ position: "absolute", width: "1920px", height: "63rem" }}
+          className="dither-container"
+        />
 
-  <Navbar create={togglePopup} logout={logoutHandler}/>
- <div className="borderDiv">
-
-     {/* <div>
+        <Navbar create={togglePopup} logout={logoutHandler} />
+        <div className="borderDiv">
+          {/* <div>
         {" "}
         <button onClick={adminHandler}>Admin</button>
         <button onClick={logoutHandler}>logout</button>
         <button onClick={togglePopup}>Create</button>
       </div> */}
-      <div style={{}}>
-        {isOpen && (
-          <div className="popup">
-            shams
-            <div>
-              <input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                type="text"
-                placeholder="title"
-              />
-            </div>
-            <div>
-              <input
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                type="description"
-                placeholder="description"
-              />
-            </div>
-            <button onClick={todohandler}>save</button>
-          </div>
-        )}
-      </div>
-{/* <HoverBorderGradient><button>shams</button></HoverBorderGradient> */}
-
-      <div className="todoDiv">
-        {/* <h1>{todo.userTODO[6].title}</h1> */}
-        {Array.isArray(todo) &&
-          todo.map((value, key) => (
-            <div key={key} className="todoAlone">
-             <div className="titlleDescription">
-               <div>
-                <label style={{color:"white"} htmlFor="">Title</label>
-                <strong>{value.title}</strong></div>
-              <br />
-              <div>  {value.description}</div>
-             </div>
-              
-                <div className="todoBtn">
-                  <button onClick={() => editHandeler(value)}>Edit</button>
-                  <button onClick={() => deleteTodo(value._id)}>Delete</button>
+          <div >
+            {isOpen && (
+              <div className="popup">
+                <div>
+                  <label style={{ color: "white" }} htmlFor="">
+                  
+                  </label>
+                  <input
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    type="text"
+                    placeholder="title"
+                  />
                 </div>
-              
-            </div>
-          ))}
-      </div>
-{/* <Dither /> */}
+                <div>
+                  <label htmlFor=""></label>
+                  <textarea style={{rows:"50px",
+  cols:"50px"}}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    type="textarea"
+                    placeholder="description"
+                  />
+                </div>
+                <button  onClick={todohandler}>save</button>
+              </div>
+            )}
+          </div>
+          {/* <HoverBorderGradient><button>shams</button></HoverBorderGradient> */}
 
- </div>
- {/* <Dither /> */}
-</div>
- {/* <Dither /> */}
+          <div className="todoDiv">
+            {/* <h1>{todo.userTODO[6].title}</h1> */}
+            {Array.isArray(todo) &&
+              todo.map((value, key) => (
+                <div key={key} className="todoAlone">
+                  <div className="titlleDescription">
+                    <div>
+                      <strong>{value.title}</strong>
+                    </div>
+                    <br />
+                    <div> {value.description}</div>
+                  </div>
+
+                  <div className="todoBtn">
+                    <button onClick={() => editHandeler(value)}>Edit</button>
+                    <button onClick={() => deleteTodo(value._id)}>
+                      Delete
+                    </button>
+                  </div>
+                </div>
+              ))}
+          </div>
+          
+        </div>
+
+      </div>
+
     </div>
   );
 };
