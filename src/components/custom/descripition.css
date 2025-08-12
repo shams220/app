@@ -1,0 +1,82 @@
+.desc-container {
+  position: relative;
+  /* No display/flex settings: will not disturb parent styles */
+}
+
+.desc-preview {
+  max-height: 2.8em;
+  overflow: hidden;
+  position: relative;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* show 2 lines */
+  -webkit-box-orient: vertical;
+  background: none;           /* transparent, won't mess up parent bg */
+text-align: left;
+
+word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+.fadeout {
+  content: '';
+  position: absolute;
+  right: 0; bottom: 0;
+  width: 30%;
+  height: 1.2em;
+  background: linear-gradient(to right, transparent, #000 80%);
+  pointer-events: none;
+}
+
+/* Read More/Close button styling */
+.desc-btn {
+  margin-top: 0.3em;
+  background: transparent;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+  position: relative;
+    right: -5rem;
+    top: 2rem;
+}
+
+/* The floating overlay */
+.desc-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 1000;
+  background: rgba(0,0,0,0.75);
+  min-height: 120px;
+  width: 100%;    /* Or use style prop to set exact width */
+  height: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.desc-full {
+  background: #222;
+  color: #fff;
+  border-radius: 8px;
+  padding: 1em;
+  margin-top: 1.2em;
+  min-width: 250px;
+  max-width: 90vw;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.2);
+  pointer-events: auto;
+}
+
+.desc-full .desc-btn {
+  display: block;
+    margin-top: 0.7em;
+    color: #ffffff;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0.5rem 2rem;
+    justify-content: center;
+    position: relative;
+    right: -3.5rem;
+    top: 0rem;
+}

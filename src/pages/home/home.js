@@ -7,6 +7,9 @@ import { NavLink } from "react-router-dom";
 import Navbar from "../../navbar";
 import { HoverBorderGradient } from "../../components/ui/hover-border-gradient";
 import Dither from "../../src/components/Dither/Dither";
+import Particles from "../../src/pages/landing/lanfing.js/Particles/Particles";
+import DescriptionBox from "../../components/custom/description";
+
 import "./home.css";
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +17,30 @@ const Home = () => {
   const [description, setDescription] = useState("");
   const [todo, setTodos] = useState([]);
   const [editId, setEditId] = useState(null);
+
+
+const [visibleTodos, setVisibleTodos] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+ const TODOS_PER_PAGE = 10;
+const [page, setPage] = useState(0); // page 0 = latest 10, page 1 = older 10, ...
+const sortedTodos = [...todo].reverse(); // now index 0 is NEWEST
+const startIdx = page * TODOS_PER_PAGE;
+const todosToShow = sortedTodos.slice(startIdx, startIdx + TODOS_PER_PAGE);
+const maxPage = Math.floor((sortedTodos.length - 1) / TODOS_PER_PAGE);
+
+  useEffect(() => {
+    if (todo.length > 0) {
+      // Get the 10 most recent, latest at the end
+      const tenLatest = todo.slice(-10);
+      setVisibleTodos(tenLatest);
+      setCurrentIndex(tenLatest.length - 1); // Show latest by default
+    } else {
+      setVisibleTodos([]);
+      setCurrentIndex(0);
+    }
+  }, [todo]);
+
   // console.log(todo[4].title)
   const navigate = useNavigate();
 
@@ -118,79 +145,99 @@ const Home = () => {
   };
   return (
     <div className="homeDiv">
-      {/* <Dither /> */}
-      {/* <Dither className="dither-container" /> */}
-      <div className="hDiv">
-        <Dither
-          style={{ position: "absolute", width: "1920px", height: "63rem" }}
-          className="dither-container"
-        />
+      {/*      
+      <Waves  style={{ position: "absolute", width: "1920px", height: "63rem" }}
+          className="waves-bg"/>
+      <div className="hDiv"> */}
 
-        <Navbar create={togglePopup} logout={logoutHandler} />
-        <div className="borderDiv">
-          {/* <div>
-        {" "}
-        <button onClick={adminHandler}>Admin</button>
-        <button onClick={logoutHandler}>logout</button>
-        <button onClick={togglePopup}>Create</button>
-      </div> */}
-          <div >
-            {isOpen && (
-              <div className="popup">
-                <div>
-                  <label style={{ color: "white" }} htmlFor="">
-                  
-                  </label>
-                  <input
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    type="text"
-                    placeholder="title"
-                  />
-                </div>
-                <div>
-                  <label htmlFor=""></label>
-                  <textarea style={{rows:"50px",
-  cols:"50px"}}
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    type="textarea"
-                    placeholder="description"
-                  />
-                </div>
-                <button  onClick={todohandler}>save</button>
+      <div className="pBg">
+        <Particles style={{ width: "145%", height: "145%" }} />
+      </div>
+      <Navbar create={togglePopup} logout={logoutHandler} />
+      <div className="borderDiv">
+        <div>
+          {isOpen && (
+            <div className="popup">
+              <div>
+                <label style={{ color: "white" }} htmlFor=""></label>
+                <input
+                  value={title}
+                  onChange={(e) => setTitle(e.target.value)}
+                  type="text"
+                  placeholder="title"
+                />
               </div>
-            )}
-          </div>
-          {/* <HoverBorderGradient><button>shams</button></HoverBorderGradient> */}
-
-          <div className="todoDiv">
-            {/* <h1>{todo.userTODO[6].title}</h1> */}
-            {Array.isArray(todo) &&
-              todo.map((value, key) => (
-                <div key={key} className="todoAlone">
-                  <div className="titlleDescription">
-                    <div>
-                      <strong>{value.title}</strong>
-                    </div>
-                    <br />
-                    <div> {value.description}</div>
-                  </div>
-
-                  <div className="todoBtn">
-                    <button onClick={() => editHandeler(value)}>Edit</button>
-                    <button onClick={() => deleteTodo(value._id)}>
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              ))}
-          </div>
-          
+              <div>
+                <label htmlFor=""></label>
+                <textarea
+                  style={{ rows: "50px", cols: "50px" }}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  type="textarea"
+                  placeholder="description"
+                />
+              </div>
+              <button onClick={todohandler}>save</button>
+            </div>
+          )}
         </div>
+        {/* <HoverBorderGradient><button>shams</button></HoverBorderGradient> */}
+
+        <div className="todoDiv">
+  {todosToShow.length > 0 ? (
+    todosToShow.map((value, key) => (
+      <div key={value._id} className="todoAlone">
+        <div className="titlleDescription">
+          <div className="titleTXT">
+            <strong>{value.title}</strong>
+          </div>
+          <br />
+          <DescriptionBox text={value.description}/>
+        </div>
+        <div className="todoBtn">
+          <button className="editBtn" onClick={() => editHandeler(value)}>
+            Edit
+          </button>
+          <button className="dltbtn" onClick={() => deleteTodo(value._id)}>
+            Delete
+          </button>
+        </div>
+      </div>
+    ))
+  ) : (
+    <div>No todos to show!</div>
+  )}
+
+  <div className="carousel-controls" style={{textAlign:"center", marginTop:"25px"}}>
+  <div className="carouselbtns">
+     <div>
+     <button
+      onClick={() => setPage(Math.max(page - 1, 0))}
+      disabled={page === 0}
+      className="prevBtn"
+      style={{marginRight: "12px"}}
+    >
+      {"<"}
+    </button>
+   </div>
+    {/* <span style={{color: '#aaa', fontSize: '0.95em'}}>
+      Page {page + 1} / {maxPage + 1}
+    </span> */}
+    <div>
+      <button
+      onClick={() => setPage(Math.min(page + 1, maxPage))}
+      disabled={page === maxPage}
+      className="nextBtn"
+      style={{marginLeft: "12px"}}
+    >
+     {">"}
+    </button>
+    </div>
+  </div>
+  </div>
+</div>
 
       </div>
-
     </div>
   );
 };

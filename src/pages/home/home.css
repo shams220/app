@@ -6,7 +6,8 @@
 } */
 
 
-.homeDiv, .hDiv {
+.homeDiv,
+.hDiv {
     min-height: 100vh;
     width: 100vw;
     background: transparent;
@@ -26,6 +27,10 @@
 
     align-items: center;
     /* position: relative; */
+}
+
+.titleTXT {
+    font-size: 1.5rem;
 }
 
 .todoDiv {
@@ -55,11 +60,6 @@
 
 }
 
-.todoBtn button {
-    background-color: red;
-    margin-right: 20px;
-
-}
 
 /* .borderDiv {
     background-color: transparent;
@@ -71,11 +71,14 @@
 .borderDiv {
     background-color: black;
     width: 95%;
-    min-height: 80vh;     /* Or 100vh if you want always full screen min! */
-    height: auto;         /* Remove fixed rem height */
+    min-height: 80vh;
+    /* Or 100vh if you want always full screen min! */
+    height: auto;
+    /* Remove fixed rem height */
     border: 1px solid white;
     border-radius: 29px;
-    box-sizing: border-box; /* Always helps */
+    box-sizing: border-box;
+    /* Always helps */
     position: absolute;
     top: 6rem;
     left: 3rem;
@@ -93,48 +96,85 @@
 .todoBtn {
     display: flex;
     height: 4rem;
-  
-   padding: 20px 0 20px 0;
+
+    padding: 20px 0 20px 0;
+    justify-content: space-between;
+    gap: 0.8rem;
 }
 
-.todoBtn button {
-    width: 60px;
+
+
+.dltbtn {
+    width: 82px;
+    height: 40px;
     border: 1px solid white;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: transparent;
+    position: relative;
+    top: 0.5rem;
 }
-.popup{
+
+.dltbtn:hover {
+    background-color: white;
+    color: black;
+    transition: ease-in-out 0.3s;
+}
+
+.editBtn {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 20px;
+    width: 82px;
+    height: 40px;
+
+    color: #000000;
+    position: relative;
+    top: 0.5rem;
+}
+
+.editBtn:hover {
+    background-color: black;
+    color: white;
+    transition: ease-in-out 0.3s;
+
+
+}
+
+.popup {
 
     position: absolute;
     background-color: black;
     width: 23rem;
     height: 23rem;
     z-index: 999;
-        top: -2rem;
+    top: -2rem;
     left: 41rem;
     border-radius: 20px;
     border: 1px solid white;
-    
+
 }
-.popup{
+
+.popup {
     display: flex;
     justify-content: flex-start;
     align-items: start;
     flex-direction: column;
     padding: 2rem;
-    
+
 }
-.popup input{
+
+.popup input {
     background-color: grey;
     color: white;
-    border:1px solid white;
+    border: 1px solid white;
     border-radius: 10px;
-        width: 19rem;
+    width: 19rem;
     height: 3rem;
-    
+
 }
-.popup textarea{
-        background-color: grey;
+
+.popup textarea {
+    background-color: grey;
     color: white;
     border: 1px solid white;
     border-radius: 10px;
@@ -142,23 +182,107 @@
     height: 10rem;
     margin-top: 2rem;
 }
-.popup button{
-   background-color: white;
-   width: 10rem;
-   height: 3rem;
-   position: relative;
-   left: 5rem;
+
+.popup button {
+    background-color: #000000;
+    width: 8rem;
+    height: 3rem;
+    position: relative;
+    left: 5rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    color: white;
+    border: 1px solid white;
 }
-.hDiv{
-    
+
+.hDiv {
+
     height: 57rem;
     z-index: 1;
 }
-.dither-container{  
-       
+
+.dither-container {
+
     /* width: 1920px !important;
     height: 63rem !important; */
     position: fixed;
 
 }
 
+.homeDiv {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.waves-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    /* behind content */
+}
+
+.hDiv {
+    position: relative;
+    z-index: 1;
+    /* content above waves */
+    background: transparent;
+    /* allow waves to show */
+}
+
+.pBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+.nextBtn {
+    color: white;
+    height: 40px;
+    width: 40px;
+    border: 1px solid white;
+    border-radius: 50px;
+font-size: 20px;
+    font-weight: 700;
+}
+
+.prevBtn {
+     color: white;
+    height: 40px;
+    width: 40px;
+    border: 1px solid white;
+    border-radius: 50px;
+    font-size: 20px;
+    font-weight: 700;
+}
+.nextBtn:hover{
+    background-color: white;
+    color: black;
+transition: ease-in-out 0.3s;
+}
+.prevBtn:hover{
+       background-color: white;
+    color: black;
+transition: ease-in-out 0.3s;
+}
+
+.carousel-controls {}
+
+.carouselbtns {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 56rem;
+}
+
+.carouselbtns button {
+ 
+
+}
