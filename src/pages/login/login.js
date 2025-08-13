@@ -18,8 +18,8 @@ const Login = () => {
         try{
             const userInputData = {email,password}
             const response = await axios.post('http://localhost:3000/api/v1/user/login',userInputData);
-            console.log("response:"+typeof(response))
-            console.log("token" + response.data.token)
+            // console.log("response:"+typeof(response))
+            // console.log("token" + response.data.token)
             const token = response.data.token;
             localStorage.setItem('userToken',token);
               setEmail("");
